@@ -1,5 +1,5 @@
 {% set name = "gettsim" %}
-{% set version = "0.6.0" %}
+{% set version = "0.7.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/gettsim-{{ version }}.tar.gz
-  sha256: 5c305d62b0c1d45344d659f0924af20f2f445d18bd15d3c368713aba453ef95a
+  sha256: ad65c26deeb554e6f7b3428e60e91c91ad0df3e0eb14d432b8757b035ce93267
 
 build:
   noarch: python
@@ -23,6 +23,7 @@ requirements:
     - pip
   run:
     - python >=3.9
+    - astor
     - dags
     - networkx
     - numpy
