@@ -6,23 +6,23 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/gettsim-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/gettsim-{{ version }}.tar.gz
   sha256: ad65c26deeb554e6f7b3428e60e91c91ad0df3e0eb14d432b8757b035ce93267
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.9
+    - python {{ python_min }}
     - setuptools >=45
     - wheel
     - setuptools-scm >=6.0
     - pip
   run:
-    - python >=3.9
+    - python >={{ python_min }}
     - astor
     - dags
     - networkx
@@ -42,6 +42,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/iza-institute-of-labor-economics/gettsim
